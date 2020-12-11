@@ -2,7 +2,6 @@ FROM maven:3.6.0-jdk-8-slim as build
 COPY src /home/app/src
 COPY pom.xml /home/app
 RUN mvn -f /home/app/pom.xml clean package -Dmaven.test.skip=true
-RUN ls -alR /
 
 FROM tomcat:9-jdk8-slim
 RUN ["rm", "-rf", "/usr/local/tomcat/webapps/ROOT"]
